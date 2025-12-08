@@ -25,7 +25,7 @@ HEADERS = {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/123.0.0.0 Safari/537.36 "
-        "(check-flink/2.0; +https://github.com/willow-god/check-flink)"
+        "(check-flink/2.0; +https://github.com/AmiracleTa/check-flink)"
     ),
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -39,15 +39,15 @@ RAW_HEADERS = {  # 仅用于获取原始数据，防止接收到Accept-Language�
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/123.0.0.0 Safari/537.36 "
-        "(check-flink/2.0; +https://github.com/willow-god/check-flink)"
+        "(check-flink/2.0; +https://github.com/AmiracleTa/check-flink)"
     ),
     "X-Check-Flink": "2.0"
 }
 
 PROXY_URL_TEMPLATE = f"{os.getenv('PROXY_URL')}{{}}" if os.getenv("PROXY_URL") else None
-SOURCE_URL = os.getenv("SOURCE_URL", "https://blog.liushen.fun/flink_count.json")  # 默认本地文件
+SOURCE_URL = os.getenv("SOURCE_URL", "https://amiracle.site/flink_count.json")  # 默认本地文件
 RESULT_FILE = "./result.json"
-AUTHOR_URL = os.getenv("AUTHOR_URL", "blog.liushen.fun")  # 作者URL，用于检测反链
+AUTHOR_URL = os.getenv("AUTHOR_URL", "amiracle.site")  # 作者URL，用于检测反链
 api_request_queue = Queue()
 
 if PROXY_URL_TEMPLATE:
