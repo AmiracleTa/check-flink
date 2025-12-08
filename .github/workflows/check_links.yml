@@ -35,16 +35,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Download result.json artifact
-      uses: dawidd6/action-download-artifact@v6
-      with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        branch: main
-        name: 'result_json'
-        path: './'
-        if_no_artifact_found: warn
+    # - name: Download result.json artifact
+    #   uses: dawidd6/action-download-artifact@v6
+    #   with:
+    #     github_token: ${{secrets.GITHUB_TOKEN}}
+    #     branch: main
+    #     name: 'result_json'
+    #     path: './'
+    #     if_no_artifact_found: warn
 
-    - name: Run Python script to check frined-links
+    - name: Run Python script to check friend-links
       env:
         PROXY_URL: ${{ secrets.PROXY_URL }}
         SOURCE_URL: ${{ secrets.SOURCE_URL }}
@@ -73,18 +73,18 @@ jobs:
         git commit -m "⏱️GitHub Action每日定时更新"
         git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:page
     
-    - name: Delete Workflow Runs
-      uses: Mattraks/delete-workflow-runs@v2
-      with:
-        retain_days: 30
-        keep_minimum_runs: 6
+    # - name: Delete Workflow Runs
+    #   uses: Mattraks/delete-workflow-runs@v2
+    #   with:
+    #     retain_days: 30
+    #     keep_minimum_runs: 6
 
-  keepalive-workflow:
-    name: Keepalive Workflow
-    if: ${{ always() }}
-    needs: check_links
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: liskin/gh-workflow-keepalive@v1
+  # keepalive-workflow:
+  #   name: Keepalive Workflow
+  #   if: ${{ always() }}
+  #   needs: check_links
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     actions: write
+  #   steps:
+  #     - uses: liskin/gh-workflow-keepalive@v1
